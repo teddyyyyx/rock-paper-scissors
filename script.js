@@ -15,11 +15,10 @@ function getComputerChoice() {
         case 2:
             handValue = "Scissors";
             break;
-    }
+    } //end of switch statement
 
-    // console.log(handValue);
     return handValue;
-}
+} //end of getComputerChoice()
 
 
 
@@ -52,15 +51,13 @@ function playRound(playerSelection, computerSelection) {
                 return("You lose, " + computerSelection + " beats " + playerSelection);
 
             }
-        }
-    // console.log(computerSelection);
-    // console.log(playerSelection);
-}
+        } //end of if statement
+} //end of playRound()
 
 
-// console.log(playRound("Rock", getComputerChoice()));
 
-// console.log("Computer = " + getComputerChoice());
+
+
 
 const playerSelection = 'Rock';
 const computerSelection = getComputerChoice();
