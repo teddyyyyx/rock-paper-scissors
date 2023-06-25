@@ -23,9 +23,6 @@ function getComputerChoice() {
 
 
 
-    let  computer = getComputerChoice();
-
-
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -65,7 +62,10 @@ function playRound(playerSelection, computerSelection) {
 
 // console.log("Computer = " + getComputerChoice());
 
-console.log(playRound("Rock", computer))
+const playerSelection = 'Rock';
+const computerSelection = getComputerChoice();
 
-console.log("Computer = " + computer);
-    console.log("Player = Rock");
+console.log(playRound(playerSelection, computerSelection));
+console.log("Player = " + playerSelection);
+console.log("Computer = " + computerSelection);
+
