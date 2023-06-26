@@ -1,3 +1,4 @@
+// Function for getting 3 possible random hand sign
 function getComputerChoice() {
     let randomValue = Math.floor(Math.random() * 3);
     let handValue;
@@ -24,6 +25,7 @@ function getComputerChoice() {
 let playerScore = 0
 let computerScore = 0
 
+// Function for playRound(), The Game Logic
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
@@ -58,18 +60,18 @@ function playRound(playerSelection, computerSelection) {
                 return("You lose, " + computerSelection + " beats " + playerSelection);
 
             }
-        } //end of if statement
+        } //end of 'if statement'
 } //end of playRound()
 
 
 
 
 
-
+// Function for the game of 5, winner/loser logic
 function game(){
-
     for(let i = 1; i <= 5; i++){
         let player = prompt("Enter hand gesture: ", '');
+
         let computer = getComputerChoice();
 
         if(!(player === 'rock' || player === 'paper' || player === 'scissors')){
@@ -83,8 +85,7 @@ function game(){
             console.log("Computer = " + computer);
             console.log("");
         }
-
-    }
+    }// end of 'for loop'
     
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
