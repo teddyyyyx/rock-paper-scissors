@@ -21,7 +21,8 @@ function getComputerChoice() {
 } //end of getComputerChoice()
 
 
-
+let playerScore = 0
+let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -32,22 +33,28 @@ function playRound(playerSelection, computerSelection) {
     } 
         else if(playerSelection == 'rock'){
             if(computerSelection == 'scissors'){
+                playerScore += 1;
                 return ("You win! " + playerSelection + " beats " + computerSelection);
             } else if(computerSelection == 'paper'){
+                computerScore += 1;
                 return("You lose, " + computerSelection + " beats " + playerSelection);
                 }
         }
         else if(playerSelection == 'paper'){
             if(computerSelection == 'rock'){
+                playerScore += 1;
                 return ("You win! " + playerSelection + "  beats " + computerSelection);
             } else if(computerSelection == 'scissors'){
+                computerScore += 1;
                 return("You lose, " + computerSelection + " beats " + playerSelection);
             }
         }
         else if(playerSelection == 'scissors'){
             if(computerSelection == 'paper'){
+                playerScore += 1;
                 return ("You win! " + playerSelection + " beats " + computerSelection);
             } else if(computerSelection == 'rock'){
+                computerScore += 1;
                 return("You lose, " + computerSelection + " beats " + playerSelection);
 
             }
@@ -59,10 +66,42 @@ function playRound(playerSelection, computerSelection) {
 
 
 
-const playerSelection = 'Rock';
-const computerSelection = getComputerChoice();
+function game(){
 
-console.log(playRound(playerSelection, computerSelection));
-console.log("Player = " + playerSelection);
-console.log("Computer = " + computerSelection);
+    for(let i = 1; i <= 5; i++){
+        let player = prompt("Enter hand gesture: ", '');
+        let computer = getComputerChoice();
+
+        if(!(player === 'rock' || player === 'paper' || player === 'scissors')){
+            console.log("**Invalid hand gesture, enter again.**");
+            console.log("");
+            i--;
+        } else{
+            console.log("Game " + i);
+            console.log(playRound(player, computer));
+            console.log("Player = " + player);
+            console.log("Computer = " + computer);
+            console.log("");
+        }
+
+    }
+    
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+
+    if(playerScore === computerScore){
+        return "Wow! It's a draw!";
+    } else if(playerScore > computerScore){
+        return "You win the game of 5!";
+    } else if(playerScore < computerScore){
+        return "You lose the game of 5!";
+    }
+}
+
+console.log(game())
+
+
+
+
+
 
