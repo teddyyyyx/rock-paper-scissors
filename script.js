@@ -70,19 +70,18 @@ function playRound(playerSelection, computerSelection) {
 // Function for the game of 5, winner/loser logic
 function game(){
     for(let i = 1; i <= 5; i++){
-        let player = prompt("Enter hand gesture: ", '');
+        let playerChoice = prompt("Enter hand gesture: ", '');
+        let computerChoice = getComputerChoice();
 
-        let computer = getComputerChoice();
-
-        if(!(player === 'rock' || player === 'paper' || player === 'scissors')){
+        if(!(playerChoice === 'rock' || playerChoice === 'paper' || playerChoice === 'scissors')){
             console.log("**Invalid hand gesture, enter again.**");
             console.log("");
             i--;
         } else{
             console.log("Game " + i);
-            console.log(playRound(player, computer));
-            console.log("Player = " + player);
-            console.log("Computer = " + computer);
+            console.log(playRound(playerChoice, computerChoice));
+            console.log("Player = " + playerChoice);
+            console.log("Computer = " + computerChoice);
             console.log("");
         }
     }// end of 'for loop'
@@ -90,18 +89,25 @@ function game(){
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
 
+    // Logic for winner/loser
     if(playerScore === computerScore){
         return "Wow! It's a draw!";
     } else if(playerScore > computerScore){
         return "You win the game of 5!";
     } else if(playerScore < computerScore){
         return "You lose the game of 5!";
-    }
+    } // end of 'if statement'
 }
 
-console.log(game())
+// console.log(game())
 
+const buttons = document.querySelectorAll(".btn");
 
+buttons.forEach(button => {
+    button.addEventListener("click", function(){
+        playRound(button.value.toLowerCase());
+    })
+})
 
 
 
